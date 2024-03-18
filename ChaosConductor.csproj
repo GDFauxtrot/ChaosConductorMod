@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net46</TargetFrameworks>
+    <AssemblyName>ChaosConductor</AssemblyName>
+    <Description>Chaos Conductor v0.1.0</Description>
+    <Version>0.1.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="*.*" />
+    <Compile Remove="**" />
+    <EmbeddedResource Include="lib\**" />
+    <Compile Include="Source\**" />
+    <Compile Remove="Source\Shared\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="netstandard" />
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+    <PackageReference Include="UnityEngine.Modules" Version="2019.3.9" IncludeAssets="compile" />
+    <Reference Include="Assembly-CSharp" />
+    <Reference Include="UnityEngine.UI" />
+    <Reference Include="Unity.Addressables" />
+    <Reference Include="Unity.ResourceManager" />
+    <Reference Include="Unity.TextMeshPro" />
+    <Reference Include="Ink-Libraries" />
+    <Reference Include="Newtonsoft.Json" />
+    <Reference Include="ChaosConductor.Shared" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>
